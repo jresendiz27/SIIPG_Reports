@@ -1,1 +1,1 @@
-web: cd build ; java $JAVA_OPTS -Xmx256m -jar --port $PORT libs/*.war
+web: cd build ; java -Xmx256m -jar libs/*.war -Dserver.port=$PORT
