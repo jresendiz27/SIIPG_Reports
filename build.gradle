@@ -62,7 +62,7 @@ dependencies {
     runtime "org.springframework:spring-test:4.2.1.RELEASE"
     compile "org.grails.plugins:ckeditor:4.5.9.0"
     compile group: 'org.jfree', name: 'jfreechart', version: '1.0.19'
-
+    compile "com.github.jsimone:webapp-runner:8.5.9.0"
 
 }
 
@@ -71,8 +71,8 @@ assets {
     minifyCss = true
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = gradleWrapperVersion
+ext {
+    set "tomcat.version", "8.5.5"
 }
 
 task stage() {
