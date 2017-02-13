@@ -48,7 +48,6 @@ environments:
 ---
 ---
 grails:
-    serverURL: "http://localhost:8080"
     profile: web
     codegen:
         defaultPackage: siipg_reports
