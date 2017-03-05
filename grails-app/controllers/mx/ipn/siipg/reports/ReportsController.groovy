@@ -4,8 +4,6 @@ class ReportsController {
 
     def chartService
 
-    def index() { }
-
     def dummyReport() {
         Content content = Content.findById(params.int("id"));
         response.setContentType("application/pdf")
@@ -17,5 +15,9 @@ class ReportsController {
         response.setContentType("application/pdf")
         response.setHeader("Content-Disposition", "attachment; filename=fileName.pdf")
         renderPdf(template: "main", model : [content: Content.first(), image: chartService.generateBase64ImageURI(chartService.genereteBarChart())])
+    }
+
+    def sample() {
+        render "OK!! login is working!"
     }
 }

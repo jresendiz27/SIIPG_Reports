@@ -14,15 +14,20 @@
             </ul>
         </div>
         <div id="list-content" class="content scaffold-list" role="main">
-            <h1><g:message code="default.list.label" args="[entityName]" /></h1>
-            <g:if test="${flash.message}">
-                <div class="message" role="status">${flash.message}</div>
+            <g:if test="${session.getAttribute("user") != null }">
+                LOGIN
             </g:if>
-            <f:table collection="${contentList}" properties="['title']"/>
+            <g:else>
+                <h1><g:message code="default.list.label" args="[entityName]" /></h1>
+                <g:if test="${flash.message}">
+                    <div class="message" role="status">${flash.message}</div>
+                </g:if>
+                <f:table collection="${contentList}" properties="['title']"/>
 
-            <div class="pagination">
-                <g:paginate total="${contentCount ?: 0}" />
-            </div>
+                <div class="pagination">
+                    <g:paginate total="${contentCount ?: 0}" />
+                </div>
+            </g:else>
         </div>
     </body>
 </html>
