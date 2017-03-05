@@ -1,4 +1,4 @@
-package siipg_reports
+package mx.ipn.siipg.reports
 
 import grails.boot.GrailsApp
 import grails.boot.config.GrailsAutoConfiguration

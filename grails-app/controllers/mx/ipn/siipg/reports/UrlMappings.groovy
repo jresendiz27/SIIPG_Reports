@@ -1,4 +1,4 @@
-package siipg_reports
+package mx.ipn.siipg.reports
 
 class UrlMappings {
 
@@ -9,7 +9,7 @@ class UrlMappings {
             }
         }
 
-        "/"(view:"/index")
+        "/"(controller: 'content', action: 'index')
         "500"(view:'/error')
         "404"(view:'/notFound')
     }
