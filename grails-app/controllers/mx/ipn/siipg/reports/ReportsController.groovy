@@ -10,7 +10,7 @@ class ReportsController {
         Content content = Content.findById(params.int("id"));
         response.setContentType("application/pdf")
         response.setHeader("Content-Disposition", "attachment; filename=${content.title}.pdf")
-        renderPdf(template: "main", model : [content: content, image: chartService.generateBase64ImageURI(chartService.generateDummyChart())])
+        renderPdf(template: "main", model : [content: content, image: params.image ?: chartService.generateBase64ImageURI(chartService.generateDummyChart())])
     }
 
     def test() {

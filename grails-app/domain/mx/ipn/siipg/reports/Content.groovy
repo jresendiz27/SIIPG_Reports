@@ -9,6 +9,7 @@ class Content {
 
     static mapping = {
         autoTimestamp true
+        html sqlType: "TEXT"
     }
 
     static constraints = {

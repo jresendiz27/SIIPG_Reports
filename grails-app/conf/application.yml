@@ -16,8 +16,14 @@ dataSource:
 environments:
     development:
         dataSource:
-            dbCreate: create-drop
-            url: jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+            driverClassName: com.mysql.jdbc.Driver
+            dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+            dbCreate: update
+            username: root
+            password: n0m3l0s3
+            url: jdbc:mysql://localhost:3306/entidadgenerov1
+#            url: jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+
     test:
         dataSource:
             dbCreate: update
@@ -126,4 +132,4 @@ endpoints:
         unique-names: true
 
 server:
-    port: 80
+    port: 8080
