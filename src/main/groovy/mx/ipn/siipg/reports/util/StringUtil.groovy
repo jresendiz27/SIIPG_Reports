@@ -4,17 +4,11 @@ package mx.ipn.siipg.reports.util
  */
 class StringUtil {
     static String sanitize(String string) {
-        String sanitizedString = string.clone()
-        sanitizedString = sanitizedString.replaceAll(" ", "_")
-        sanitizedString = sanitizedString.replaceAll("\"", "_")
-        sanitizedString = sanitizedString.replaceAll("\"", "_")
-        sanitizedString = sanitizedString.replaceAll("/", "_")
-        sanitizedString = sanitizedString.replaceAll(":", "_")
-        sanitizedString = sanitizedString.replaceAll("\\*", "_")
-        sanitizedString = sanitizedString.replaceAll("\\?", "_")
-        sanitizedString = sanitizedString.replaceAll("\\<", "_")
-        sanitizedString = sanitizedString.replaceAll("\\>", "_")
-        sanitizedString = sanitizedString.replaceAll("\\|", "_")
-        return sanitizedString.toString()
+        String sanitizedString = string
+        sanitizedString = sanitizedString.trim()
+        sanitizedString = sanitizedString.replaceAll(" ", "-")
+        sanitizedString = sanitizedString.replaceAll("\\.+", ".")
+        sanitizedString = sanitizedString.replaceAll("[\\\\|/|:|\\*|\\?|\\<|\\>|\\|]", "_")
+        return sanitizedString
     }
 }
