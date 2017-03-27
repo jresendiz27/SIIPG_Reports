@@ -4,11 +4,7 @@ class Content {
     String title
     String html
 
-    Date dateCreated
-    Date lastUpdated
-
     static mapping = {
-        autoTimestamp true
         html sqlType: "TEXT"
     }
 
