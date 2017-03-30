@@ -15,7 +15,7 @@ class StringUtil {
     static String sanitizeTitle(String  string) {
         String sanitizedString = string
         sanitizedString = sanitizedString.trim()
-        sanitizedString = sanitizedString.replaceAll(".", "%")
+        sanitizedString = sanitizedString.replaceAll("\\.", "%")
         return sanitizedString
     }
 }
