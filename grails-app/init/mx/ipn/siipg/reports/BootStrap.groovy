@@ -8,12 +8,12 @@ class BootStrap {
     def dataSource
 
     def init = { servletContext ->
-        if(Environment.current == Environment.PRODUCTION) {
-            def resource = this.class.classLoader.getResource('inserts.sql')
-            def file = resource.getFile();
-            Sql connection =  new Sql(dataSource)
-            connection.execute(new File(file).text);
-        }
+        //if(Environment.current == Environment.PRODUCTION) {
+            //def resource = this.class.classLoader.getResource('inserts.sql')
+            //def file = resource.getFile();
+            //Sql connection =  new Sql(dataSource)
+            //connection.execute(new File(file).text);
+        //}
     }
     def destroy = {
     }
