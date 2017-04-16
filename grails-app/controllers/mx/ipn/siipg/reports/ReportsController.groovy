@@ -14,7 +14,13 @@ class ReportsController {
     }
 
     def generateReport() {
-        Content content = Content.findByTitleLike("%${StringUtil.sanitizeTitle(params.name)}%") ?: Content.findById(params.int("id"));
+        Content content
+        if(params.name) {
+            content = Content.findByTitleLike("%${StringUtil.sanitizeTitle(params.name)}%")
+        } else {
+            content = Content.findById(params.int("id"));
+        }
+
         response.setContentType("application/pdf")
         response.setHeader("Content-Disposition", "attachment; filename=${StringUtil.sanitize(content.title)}.pdf")
         renderPdf(template: "main", model: [
