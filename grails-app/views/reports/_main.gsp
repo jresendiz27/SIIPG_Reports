@@ -18,6 +18,8 @@
     <g:render template="layout/header" model="[content: content]"></g:render>
     ${raw(content.html)}
     <br/>
+    <strong>Comentarios</strong>
+    <p>${comments}</p>
     <br/>
     <table class="header" width="100%">
         <tr>
