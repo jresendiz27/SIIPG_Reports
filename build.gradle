@@ -115,7 +115,7 @@ release {
         requireBranch = 'master'
         pushToRemote = 'origin'
         pushToBranchPrefix = ''
-        commitVersionFileOnly = false
-        signTag = true
+        commitVersionFileOnly = true
+        signTag = false
     }
 }
