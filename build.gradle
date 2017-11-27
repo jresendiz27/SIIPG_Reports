@@ -109,7 +109,7 @@ release {
 }
 
 task buildDocker(type: Docker, dependsOn: release) {
-    push = true
+    push = false
     applicationName = jar.baseName
     dockerfile = file('./Dockerfile')
 }
