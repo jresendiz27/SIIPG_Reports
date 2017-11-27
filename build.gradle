@@ -98,8 +98,8 @@ task copyToLib(type: Copy) {
 stage.dependsOn(copyToLib)
 
 task copyDockerFile(type: Copy, dependsOn: build) {
-    from 'src/main/docker'
-    into 'build/docker'
+    from 'src/main/docker/Dockerfile'
+    into 'build/Dockerfile'
 }
 
 task buildDocker(type: Docker, dependsOn: build) {
