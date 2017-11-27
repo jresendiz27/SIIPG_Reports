@@ -98,18 +98,6 @@ task copyToLib(type: Copy) {
 stage.dependsOn(copyToLib)
 
 
-task buildDocker(type: Docker, dependsOn: build) {
-    push = true
-    applicationName = jar.baseName
-    dockerfile = file('./Dockerfile')
-    doFirst {
-        copy {
-            from jar
-            into stageDir
-        }
-    }
-}
-
 release {
     git {
         requireBranch = 'master'
@@ -118,4 +106,10 @@ release {
         commitVersionFileOnly = true
         signTag = false
     }
+}
+
+task buildDocker(type: Docker, dependsOn: release) {
+    push = true
+    applicationName = jar.baseName
+    dockerfile = file('./Dockerfile')
 }
