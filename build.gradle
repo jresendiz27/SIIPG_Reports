@@ -5,11 +5,14 @@ buildscript {
     repositories {
         mavenLocal()
         maven { url "https://repo.grails.org/grails/core" }
+        maven { url "https://plugins.gradle.org/m2/" }
     }
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
         classpath "com.bertramlabs.plugins:asset-pipeline-gradle:2.8.2"
         classpath "org.grails.plugins:hibernate4:5.0.10"
+        classpath('se.transmode.gradle:gradle-docker:1.2')
+        classpath "net.researchgate:gradle-release:2.6.0"
     }
 }
 
@@ -22,6 +25,8 @@ apply plugin:"war"
 apply plugin:"org.grails.grails-web"
 apply plugin:"org.grails.grails-gsp"
 apply plugin:"asset-pipeline"
+apply plugin: 'docker'
+apply plugin: "net.researchgate.release"
 
 ext {
     grailsVersion = project.grailsVersion
@@ -91,3 +96,26 @@ task copyToLib(type: Copy) {
 }
 
 stage.dependsOn(copyToLib)
+
+
+task buildDocker(type: Docker, dependsOn: build) {
+    push = true
+    applicationName = jar.baseName
+    dockerfile = file('./Dockerfile')
+    doFirst {
+        copy {
+            from jar
+            into stageDir
+        }
+    }
+}
+
+release {
+    git {
+        requireBranch = 'master'
+        pushToRemote = 'origin'
+        pushToBranchPrefix = ''
+        commitVersionFileOnly = false
+        signTag = true
+    }
+}
