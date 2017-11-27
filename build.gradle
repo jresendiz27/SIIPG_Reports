@@ -95,12 +95,12 @@ task copyToLib(type: Copy) {
     }
 }
 
-//stage.dependsOn(copyToLib)
-//
-//task copyDockerFile(type: Copy, dependsOn: build) {
-//    from 'src/main/docker'
-//    into 'build/'
-//}
+stage.dependsOn(copyToLib)
+
+task copyDockerFile(type: Copy, dependsOn: build) {
+    from 'src/main/docker'
+    into 'build/docker'
+}
 
 task buildDocker(type: Docker, dependsOn: build) {
     push = true
