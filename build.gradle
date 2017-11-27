@@ -97,6 +97,12 @@ task copyToLib(type: Copy) {
 
 stage.dependsOn(copyToLib)
 
+task copyDockerFile(type: Copy) {
+    from 'src/main/docker'
+    into 'build/'
+}
+
+buildDocker.dependsOn(copyDockerFile)
 
 release {
     git {
