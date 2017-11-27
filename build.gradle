@@ -95,17 +95,17 @@ task copyToLib(type: Copy) {
     }
 }
 
-stage.dependsOn(copyToLib)
-
-task copyDockerFile(type: Copy, dependsOn: build) {
-    from 'src/main/docker'
-    into 'build/'
-}
+//stage.dependsOn(copyToLib)
+//
+//task copyDockerFile(type: Copy, dependsOn: build) {
+//    from 'src/main/docker'
+//    into 'build/'
+//}
 
 task buildDocker(type: Docker, dependsOn: build) {
     push = true
     applicationName = "${jar.baseName}".toLowerCase()
-    dockerfile = file('build/docker/Dockerfile')
+    dockerfile = file('Dockerfile')
 }
 
 release {
