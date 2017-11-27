@@ -105,7 +105,7 @@ task copyDockerFile(type: Copy, dependsOn: build) {
 task buildDocker(type: Docker, dependsOn: build) {
     push = true
     applicationName = "${jar.baseName}".toLowerCase()
-    dockerfile = file('./Dockerfile')
+    dockerfile = file('build/docker/Dockerfile')
 }
 
 release {
