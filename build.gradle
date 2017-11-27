@@ -111,5 +111,5 @@ release {
 task buildDocker(type: Docker, dependsOn: build) {
     push = true
     applicationName = "${jar.baseName}".toLowerCase()
-    dockerfile = file('./Dockerfile')
+    dockerfile = file('../../Dockerfile')
 }
