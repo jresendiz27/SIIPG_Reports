@@ -20,7 +20,7 @@
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <g:img dir="images" file="ipn.png" width="100%" height="100%"/>
-                    ${new Date()} - other branch
+                    ${new Date()} - AnotherSample
                 </div>
             </div>
         </div>
